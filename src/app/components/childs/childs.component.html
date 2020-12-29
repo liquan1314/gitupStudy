@@ -1,0 +1,16 @@
+<h3>google地图</h3>
+<div id="map"></div>
+
+<ul>
+  <li *ngFor="let item of locations" (click)="changeCenter(item)">{{item}}</li>
+</ul>
+<input type="file" id="uploadFile" (change)="changShap()"> 上传文件
+<button (click)="newMarker()">创建标记</button>
+<button (click) ='deleteMarker()'>删除标记</button>
+<button (click)="painImg()">绘图</button>
+<button (click)="painMoreImg()">绘制多边形</button>
+<button (click)="changeColor()">改变多边形的颜色</button>
+<button (click)="importData()">导入数据</button>
+<button (click)="producetInfoWindow()">生成一个infoWindow</button>
+<div id="app" style="width:800px;height: 800px"></div>
+<!--<button (click)="changeCenter()">改变中心点</button>-->
