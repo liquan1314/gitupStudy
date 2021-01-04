@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import * as shpjs from "shpjs";
 import {Latlng} from '../../classes/latlng';
+import {FormGroup,FormBuilder,FormControl} from '@angular/forms'
 import Polyline = google.maps.Polyline;
 // import shp from 'shpjs';
 
@@ -10,6 +11,43 @@ import Polyline = google.maps.Polyline;
   styleUrls: ['./childs.component.scss']
 })
 export class ChildsComponent {
+
+  //对响应式的表单控件组进行配置数据
+  location = new FormGroup({
+      lat:new FormControl(''),
+      lng:new FormControl('')
+  })
+
+  //触发提交事件,得到用户输入的信息，然后改变中心点
+  onSubmit () {
+    const that = this;
+    if(that.markers){
+      that.markers.setMap(null)
+    }
+    // console.log(1)
+    const latLng = new Latlng(); //生成经纬度的对象
+    //判断经纬度是否存在
+    if(that.location.value.lat){
+        latLng.lng = parseFloat(that.location.value.lat) //对经纬度进行转换为数字类型
+    }
+    if(that.location.value.lng){
+      latLng.lat = parseFloat(that.location.value.lng)
+    }
+    // console.log(latLng)
+
+    //改变地图的中心点
+    that.map.setCenter({
+      lat:latLng.lat,
+      lng:latLng.lng,
+    })
+    //在该地图的中心点设置标记
+    that.markers = new google.maps.Marker({
+      position:latLng,
+      map:that.map,
+      title:'中心点',
+      label:'这是中心点'
+    })
+  }
 
   constructor() {
   }

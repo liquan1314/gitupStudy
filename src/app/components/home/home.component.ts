@@ -5,11 +5,11 @@ import {NavigationExtras,Router} from '@angular/router'
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent{
 
   constructor(public router:Router) { }
   //跳转的方法
-  Navigator():void{
+  Navigate():void{
     let queryparams:NavigationExtras={
       queryParams:{
           name:'home组件跳转过来的'

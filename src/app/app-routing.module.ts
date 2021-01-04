@@ -5,17 +5,17 @@ import {ChildsComponent} from './components/childs/childs.component';
 const routes:Routes = [
   {
     path:'home',
-    component:HomeComponent
+    component:HomeComponent,
   },
   {
     path:'child',
-    component:ChildsComponent
+    component:ChildsComponent,
   },
-  // {
-  //   path:'',
-  //   redirectTo:'/home',
-  //   pathMatch:'full', //完全匹配
-  // }
+  {
+    path:'',
+    redirectTo:'/home',
+    pathMatch:'full', //完全匹配
+  }
 ]
 //这是类的修饰符，对当前引用的这个类进行修饰
 @NgModule({
