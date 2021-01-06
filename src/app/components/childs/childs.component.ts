@@ -34,7 +34,7 @@ export class ChildsComponent {
     lat: new FormControl(''),
     lng: new FormControl('')
   })
-  
+
   map: any;  //创建地图
   markers: any; //创建标记
   polygon: any; //多边形
@@ -115,10 +115,10 @@ export class ChildsComponent {
                   let arr1: any[] = []
                   for (let h = 0; h < coords[j].length; h++) {
                     for (let k = 0; k < coords[j][h].length; k++) {
-                      let str = new Latlng();
-                      str.lat = coords[j][h][k][1];
-                      str.lng = coords[j][h][k][0];
-                      arr1.push(str)
+                      let latlng = new Latlng();
+                      latlng.lat = coords[j][h][k][1];
+                      latlng.lng = coords[j][h][k][0];
+                      arr1.push(latlng)
                     }
                   }
                   arr.push(arr1)
