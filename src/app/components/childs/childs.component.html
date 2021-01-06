@@ -1,21 +1,20 @@
 <h3>google地图</h3>
-<div id="map"></div>
+<div id="map" #googleMap></div>
 
 <ul>
-  <li *ngFor="let item of locations" (click)="changeCenter(item)">{{item}}</li>
+  <li *ngFor="let item of locations" (click)="onChangeCenter(item)">{{item}}</li>
 </ul>
 <input type="file" id="uploadFile" (change)="changShap()"> 上传文件
-<button (click)="newMarker()">创建标记</button>
-<button (click) ='deleteMarker()'>删除标记</button>
-<button (click)="painImg()">绘图</button>
-<button (click)="painMoreImg()">绘制多边形</button>
-<button (click)="changeColor()">改变多边形的颜色</button>
-<button (click)="importData()">导入数据</button>
-<button (click)="producetInfoWindow()">生成一个infoWindow</button>
-<!--<button (click)="changeCenter()">改变中心点</button>-->
+<button (click)="onNewMarker()">创建标记</button>
+<button (click) ='onDeleteMarker()'>删除标记</button>
+<button (click)="onDeleteMarker()">绘图</button>
+<button (click)="onPaintMoreImg()">绘制多边形</button>
+<button (click)="onChangeColor()">改变多边形的颜色</button>
+<button (click)="onProductInfoWindow()">生成一个infoWindow</button>
 <form [formGroup]="location" (ngSubmit)="onSubmit()">
   <label>
-    精度: <input type="text" formControlName="lng">
+  <!--注意:在编程中，不管是中文还是英文我们都应该书写正确的写法    -->
+    经度: <input type="text" formControlName="lng">
   </label>
   <label>
     维度: <input type="text" formControlName="lat">
