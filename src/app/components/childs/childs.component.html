@@ -1,5 +1,5 @@
 <h3>google地图</h3>
-<div id="map"></div>
+<div id="map" #googleMap></div>
 
 <ul>
   <li *ngFor="let item of locations" (click)="onChangeCenter(item)">{{item}}</li>
@@ -8,13 +8,13 @@
 <button (click)="onNewMarker()">创建标记</button>
 <button (click) ='onDeleteMarker()'>删除标记</button>
 <button (click)="onDeleteMarker()">绘图</button>
-<button (click)="onPainMoreImg()">绘制多边形</button>
+<button (click)="onPaintMoreImg()">绘制多边形</button>
 <button (click)="onChangeColor()">改变多边形的颜色</button>
 <button (click)="onProductInfoWindow()">生成一个infoWindow</button>
-<!--<button (click)="onChangeCenter()">改变中心点</button>-->
 <form [formGroup]="location" (ngSubmit)="onSubmit()">
   <label>
-    精度: <input type="text" formControlName="lng">
+  <!--注意:在编程中，不管是中文还是英文我们都应该书写正确的写法    -->
+    经度: <input type="text" formControlName="lng">
   </label>
   <label>
     维度: <input type="text" formControlName="lat">
